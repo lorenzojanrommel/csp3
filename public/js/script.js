@@ -47,12 +47,24 @@
     })
 
     // Edit comment
-    // $('body').on('click', '.edit', function(e){
-    //     var id = $(this).val();
-    //     var comment = $('.commentToEdit').val();
-    //     console.log(id);
-    //     console.log(comment);
-    // })
+    $('body').on('click', '.edit', function(e){
+        var id = $(this).val();
+        var comment = $('.commentToEdit'+id).val();
+        $.ajax({
+            method : 'POST',
+            url : '/edit-comment/'+id,
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data : comment,
+            success : function(data, response){
+                // $('.refresh').load(location.href + " .refresh");
+                // console.log(data);
+                alert(data);
+                // console.log(response);
+            }
+        })
+    })
 
     // delete user
     $('body').on('click', '.delete-user', function(e){
@@ -72,9 +84,9 @@
         e.preventDefault();
         var method = $(this).attr('method');
         var url = $(this).attr('action');
-        var name = $('#name').val();
-        var email = $('#email').val();
-        var password = $('#password').val();
+        var name = $('.name').val();
+        var email = $('.email').val();
+        var password = $('.password').val();
         $('#addAdmin').modal('toggle');
         // console.log(method);
         $.ajax({

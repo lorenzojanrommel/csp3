@@ -79,9 +79,11 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateComment(Request $request, $id)
     {
-        //
+        if($request->ajax()){
+        return ('Not Working');
+        }
     }
 
     /**

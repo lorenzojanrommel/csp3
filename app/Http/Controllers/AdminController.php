@@ -13,7 +13,7 @@ class AdminController extends Controller
 {
 	public function __construct()
 	{
-	    $this->middleware(['auth', 'admin'])->except(['showProfile', 'singlePost']);
+        $this->middleware(['auth', 'admin'])->except(['showProfile', 'singlePost']);
 	}
     public function index (){
     	return view('admin.dashboard');

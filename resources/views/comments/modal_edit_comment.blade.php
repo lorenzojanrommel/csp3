@@ -10,7 +10,7 @@
                  	<div class="modal-body">
                  	  <form action="" method="POST" class="editComment">
                         <div class="form-group">
-                          <p><input type="text" class="form-control commentToEdit" value="{{$comment->comment}}{{$comment->id}}"></p>
+                          <input type="text" class="form-control commentToEdit{{$comment->id}}" value="{{$comment->comment}}">
                         </div>  
                     </div>
                     <div class="modal-footer">
